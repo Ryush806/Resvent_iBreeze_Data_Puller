@@ -1,7 +1,7 @@
 # Resvent_iBreeze_Data_Puller
 Pulls and parses OSA/UARS data from the Resvent iBreeze PAP machine.
 Currently (as of 2022-10-20), 3rd party PAP analysis programs like 
-OSCAR to not support Resvent. This project was created as a stopgap
+OSCAR do not support Resvent. This project was created as a stopgap
 to allow Resvent users to access their rawdata until Oscar etc begin
 supporting Resvent machines.
 
@@ -32,19 +32,17 @@ In terminal:
 
 In each of the following programs, you will have to change the
 'path' variable to wherever your patient.db or SD card is 
-located if you want to run them separately.
+located if you want to run them separately. The path variables
+are located at the end of each program under:
+if __name__ == '__main__':
 
 - dbExplor.py
-
-path variable on line 14
 
 Lets you look through the various tables in the 
 patient.db to explore what's there. Probably not super useful 
 for most but I wanted to include it anyway.
 
 - wavePuller.py
-
-path variable on line 24
 
 Grabs the very detailed pressure and flow readings.
 It is sampled at a rate of 25 measurements per second.
@@ -64,8 +62,6 @@ to handle (at least so far as I know how to use it) so they have
 to be split.
 
 - detailPuller.py
-
-path variable on line 37
 
 Grabs the various respiratory parameters.
 Pressure, IPAP, EPAP, Leak, Vt, MV, RR, Ti, IE, Spo2, PR
@@ -87,8 +83,6 @@ even though it lives on the SD card.
 ############
 
 - eventsPuller.py
-
-path variable on line 118
 
 Grabs the log of respiratory events (apnea, hypopnea, flow 
 limitation, etc).
