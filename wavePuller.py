@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Ryan Boncheff'
-__copyright__ = None
+__copyright__ = 'Ryan Boncheff'
 __credits__ = None
-__license__ = None
+__license__ = 'GNU General Public License v3.0'
 __version__ = 'A001'
 __maintainer__ =  'Ryan Boncheff'
 __email__ = 'ryanboncheff@gmail.com'
