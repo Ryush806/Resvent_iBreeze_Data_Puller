@@ -17,6 +17,7 @@ I have no idea what the 'gd' column is
 
 import os
 import pandas as pd
+import datetime
 
 debug = False
 
@@ -206,7 +207,11 @@ def eventPuller(path):
                                       'Usage':'Usage_sec',
                                       'Duration, sec':'Duration_sec'})
 
-    resultPath = 'eventsHistory' + str(pd.datetime.now()) + '.csv'
+    resultPath = 'eventsHistory' + str(datetime.datetime.now()) + '.csv'
+    
+    # Clean the file name
+    resultPath = resultPath.replace(':', '_')
+    resultPath = resultPath.replace('/', '-')
 
     events.to_csv(resultPath)
 
