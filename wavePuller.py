@@ -11,6 +11,7 @@ __status__ = 'Alpha'
 import struct
 import pandas as pd
 import sqlite3
+import datetime
 
 def wavePuller(path):
 
@@ -96,7 +97,12 @@ def wavePuller(path):
             results[str(labelDict[rec['label']])] = recData
 
             # writes the dataset to a csv for use elsewhere
-            csvName = 'waveData_' + labelDesc + str(pd.datetime.now()) + '.csv'
+            csvName = 'waveData_' + labelDesc + str(datetime.datetime.now())+ '.csv'
+            
+            # Clean the file name
+            csvName = csvName.replace(':', '_')
+            csvName = csvName.replace('/', '-')
+            
             results.to_csv(csvName, mode = 'a', index = False)
 
 if __name__ == '__main__':

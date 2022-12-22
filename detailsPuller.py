@@ -11,6 +11,7 @@ __status__ = 'Alpha'
 import struct
 import pandas as pd
 import sqlite3
+import datetime
 
 def detailsPuller(path):
 
@@ -113,7 +114,12 @@ def detailsPuller(path):
             dataSet = dataSet.merge(metric, how = 'outer', on = ['timestamp', 'date'])
 
     # writes the dataset to a csv for use elsewhere
-    csvName = 'detailsData' + str(pd.datetime.now()) + '.csv'
+    csvName = 'detailsData' + str(datetime.datetime.now()) + '.csv'
+    
+    # Clean the file name
+    csvName = csvName.replace(':', '_')
+    csvName = csvName.replace('/', '-')
+    
     dataSet.to_csv(csvName)
 
 if __name__ == '__main__':
